@@ -1,10 +1,10 @@
-
+### staff augmentation
 requiere java 8 y maven instalado
 
 El ejecutable es HandleStaffProfiles, los resultados se ven por consola.
 
-mvn clean install
-mvn exec:java -Dexec.mainClass=" bdev.staff.HandleStaffProfiles"ç
+* mvn clean install
+* mvn exec:java -Dexec.mainClass=" bdev.staff.HandleStaffProfiles"
  
 Segun los requerimientos, los pasos son:  
 Abrir el archivo adjunto y parsear la informacion.
