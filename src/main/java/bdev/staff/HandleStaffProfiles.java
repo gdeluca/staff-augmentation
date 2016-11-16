@@ -34,6 +34,10 @@ public class HandleStaffProfiles {
 	      return Arrays.stream(matchStrings).anyMatch(val -> role.contains(val));
 	}
 
+	public static boolean doesNotContainsAny(String[] matchStrings, String role) {
+	      return Arrays.stream(matchStrings).noneMatch(val -> role.contains(val));
+	}
+	
 	private List<UserProfile> getFilteredProfiles() {
 		List<UserProfile> loadedProfiles = new ParseStaffFile().scanFile();
 		
@@ -41,7 +45,7 @@ public class HandleStaffProfiles {
 			.filter(profile -> 
 				(containsAny(roleWordsFilterStrings, profile.getTitle().toLowerCase().trim())
 				|| containsAny(roleWordsFilterStrings, profile.getCurrentRole().toLowerCase().trim()))
-				&& containsAny(countryFilterStrings, profile.getCountry().toLowerCase().trim())
+				&& doesNotContainsAny(countryFilterStrings, profile.getCountry().toLowerCase().trim())
 				
 				// add more filtering criteria here
 			
