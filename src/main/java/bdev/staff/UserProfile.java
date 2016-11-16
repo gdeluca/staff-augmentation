@@ -113,4 +113,12 @@ public class UserProfile {
 		this.country = country;
 	}
 
+	
+	@Override
+	public String toString() {
+		return "UserProfile [publicProfileURL=" + publicProfileURL + ", name=" + name + ", lastName=" + lastName
+				+ ", title=" + title + ", currentRole=" + currentRole + ", country=" + country + "]";
+	}
+
+	
 }

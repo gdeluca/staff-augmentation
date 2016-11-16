@@ -13,7 +13,7 @@ public class ParseStaffFile {
 
 	}
 
-	public void scanFile() throws Exception{
+	public List<UserProfile> scanFile(){
       List<UserProfile> list = new ArrayList();
       Scanner scanner = null;
 		try {
@@ -26,15 +26,19 @@ public class ParseStaffFile {
 	        }     
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+		} catch (NullPointerException e) {
+			e.printStackTrace();
 		} finally {
 			scanner.close();
 		}
+		return list;
 	}
 	
-	private UserProfile parseUserProfile(String line) throws Exception {
-		String[] values = line.split("|");
+	private UserProfile parseUserProfile(String line) {
+		String[] values = line.split("\\|");
 		if (values.length != 10) {
-			throw new Exception("invalid file format");
+			System.out.print("ignoring invalid format on soruce file for profile " + values[0]);
+			System.out.println("-- Current size " + values.length + " exceded the expected 10");
 		}
 		return new UserProfile(
 				values[0],
